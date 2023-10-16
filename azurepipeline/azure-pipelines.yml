@@ -20,6 +20,6 @@ steps:
     connectionType: 'None'
     namespace: 'keycloak'
     command: 'apply'
-    arguments: '-f $(System.DefaultWorkingDirectory)/configmap.yml -f $(System.DefaultWorkingDirectory)/deployment.yml -f $(System.DefaultWorkingDirectory)/service.yml'
+    arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yml -f $(Build.SourcesDirectory)/service.yml'
     secretType: 'generic'
 
