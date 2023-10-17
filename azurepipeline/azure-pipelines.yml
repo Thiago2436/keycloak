@@ -14,16 +14,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    echo "Cloning GitHub repository..."
-    git clone https://github.com/Thiago2436/keycloak $(Build.SourcesDirectory)
-  displayName: 'Clone GitHub repository'
+# - script: |
+#     echo "Cloning GitHub repository..."
+#     git clone https://github.com/Thiago2436/keycloak $(Build.SourcesDirectory)
+#   displayName: 'Clone GitHub repository'
   
 - task: Kubernetes@1
   inputs:
     connectionType: 'None'
     namespace: 'keycloak'
     command: 'apply'
-    arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yml -f $(Build.SourcesDirectory)/service.yml'
+    arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yaml -f $(Build.SourcesDirectory)/service.yaml'
     secretType: 'generic'
 
