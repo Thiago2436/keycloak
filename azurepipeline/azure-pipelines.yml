@@ -26,6 +26,10 @@ steps:
     arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yaml -f $(Build.SourcesDirectory)/service.yaml'
     secretType: 'generic'
 
+ - script: |
+     echo "helm credencial..."
+     sudo chmod 777 /etc/rancher/k3s/k3s.yaml 
+
  - task: HelmDeploy@0
    inputs:
      connectionType: 'None'
