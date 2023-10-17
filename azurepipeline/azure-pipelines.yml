@@ -17,7 +17,9 @@ steps:
  - script: |
      echo "helm installer..."
      sudo snap install helm --classic 
-
+ - script: |
+     echo "k3s credencial..."
+     sudo chmod 644 /etc/rancher/k3s/k3s.yaml --verbose
  - task: Kubernetes@1
    inputs:
     connectionType: 'None'
