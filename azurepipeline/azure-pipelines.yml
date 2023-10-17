@@ -14,7 +14,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
+- script: |
+    echo "Cloning GitHub repository..."
+    git clone https://github.com/Thiago2436/keycloak $(Build.SourcesDirectory)
+  displayName: 'Clone GitHub repository'
+  
 - task: Kubernetes@1
   inputs:
     connectionType: 'None'
