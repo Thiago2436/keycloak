@@ -28,12 +28,12 @@ steps:
 
  - task: HelmDeploy@0
    inputs:
-     connectionType: 'None'
-     namespace: 'keycloak'
-     command: 'upgrade'
-     chartType: 'FilePath'
-     chartPath: '/keycloak'
-     recreate: true
-     resetValues: true
-     force: true
+    connectionType: 'None'
+    namespace: 'keycloak'
+    command: 'upgrade'
+    chartType: 'FilePath'
+    chartPath: '$(Build.SourceDirectory)/keycloak/values.yaml'
+    recreate: false
+    resetValues: true
+    force: true
 
