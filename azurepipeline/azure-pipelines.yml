@@ -35,4 +35,5 @@ steps:
      chartName: 'keycloak'
      resetValues: true
      force: true
+     arguments: 'dependency-build'
 
