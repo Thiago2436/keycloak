@@ -41,7 +41,8 @@ steps:
      command: 'upgrade'
      chartType: 'Name'
      chartName: 'keycloak'
-     resetValues: true
+     releaseName: 'keycloak'
      force: true
+     waitForExecution: false
      arguments: '--dependency-update'
 
