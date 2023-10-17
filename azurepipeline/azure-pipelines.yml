@@ -16,7 +16,7 @@ pool:
 steps:
  - script: |
      echo "helm installer..."
-     sudo snap install helm --classic $(Build.SourcesDirectory)
+     sudo snap install helm --classic 
 
  - task: Kubernetes@1
    inputs:
