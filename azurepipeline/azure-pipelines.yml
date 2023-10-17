@@ -18,7 +18,14 @@ steps:
 #     echo "Cloning GitHub repository..."
 #     git clone https://github.com/Thiago2436/keycloak $(Build.SourcesDirectory)
 #   displayName: 'Clone GitHub repository'
-  
+
+- task: HelmInstaller@0
+  inputs:
+    helmVersion: 'latest'
+    installKubectl: true
+    
+
+
 - task: Kubernetes@1
   inputs:
     connectionType: 'None'
@@ -26,4 +33,15 @@ steps:
     command: 'apply'
     arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yaml -f $(Build.SourcesDirectory)/service.yaml'
     secretType: 'generic'
+
+- task: HelmDeploy@0
+  inputs:
+    connectionType: 'None'
+    namespace: 'keycloak'
+    command: 'upgrade'
+    chartType: 'FilePath'
+    chartPath: '$(Build.SourceDirectory)/keycloak'
+    recreate: true
+    resetValues: true
+    force: true
 
