@@ -32,7 +32,7 @@ steps:
     namespace: 'keycloak'
     command: 'upgrade'
     chartType: 'FilePath'
-    chartPath: '$(Build.SourceDirectory)/keycloak/values.yaml'
+    chartPath: 'https://github.com/Thiago2436/keycloak/tree/2ff0a6d2cd5f95f80a10556d41d1f46267a2e75d/keycloak'
     recreate: false
     resetValues: true
     force: true
