@@ -18,16 +18,16 @@ steps:
      echo "helm installer..."
      sudo snap install helm --classic $(Build.SourcesDirectory)
 
-- task: Kubernetes@1
-  inputs:
+ - task: Kubernetes@1
+   inputs:
     connectionType: 'None'
     namespace: 'keycloak'
     command: 'apply'
     arguments: '-f $(Build.SourcesDirectory)/configmap.yml -f $(Build.SourcesDirectory)/deployment.yaml -f $(Build.SourcesDirectory)/service.yaml'
     secretType: 'generic'
 
-- task: HelmDeploy@0
-  inputs:
+ - task: HelmDeploy@0
+   inputs:
     connectionType: 'None'
     namespace: 'keycloak'
     command: 'upgrade'
