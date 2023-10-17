@@ -28,7 +28,8 @@ steps:
 
  - script: |
      echo "helm credencial..."
-     sudo chmod 600 /etc/rancher/k3s/k3s.yaml
+     sudo chmod 644 /etc/rancher/k3s/k3s.yaml --verbose
+
 
 
  - task: HelmDeploy@0
