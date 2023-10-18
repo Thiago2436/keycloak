@@ -34,5 +34,6 @@ steps:
     helm repo update
     helm upgrade --install keycloak bitnami/keycloak -n keycloak 
     echo "'Adicionar repositório remoto Helm'"
+   displayName: 'Helm Deploy keycloak' 
 
 
