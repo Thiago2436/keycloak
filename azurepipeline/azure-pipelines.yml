@@ -32,16 +32,7 @@ steps:
  - script: |
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo update
+    helm upgrade --install keycloak bitnami/keycloak -n keycloak --verbose
     echo "'Adicionar repositório remoto Helm'"
 
- - task: HelmDeploy@0
-   inputs:
-    connectionType: 'None'
-    namespace: 'keycloak'
-    command: 'upgrade'
-    chartType: 'name'
-    chartPath: 'bitnami/keycloak '
-    releaseName: 'keycloak'
-    force: true
-    waitForExecution: false
-    arguments: '--dependency-update'
+
