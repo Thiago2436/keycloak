@@ -32,7 +32,7 @@ steps:
  - script: |
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo update
-    helm upgrade --install keycloak bitnami/keycloak -n keycloak --verbose
+    helm upgrade --install keycloak bitnami/keycloak -n keycloak 
     echo "'Adicionar repositório remoto Helm'"
 
 
