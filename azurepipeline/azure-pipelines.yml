@@ -32,15 +32,18 @@ steps:
      echo "helm credencial..."
      sudo chmod 644 /etc/rancher/k3s/k3s.yaml --verbose
 
-
+ - script: |
+    helm repo add bhuwanupadhyay https://bhuwanupadhyay.github.io/helm-charts/
+    helm repo update
+    echo "'Adicionar repositório remoto Helm'"
 
  - task: HelmDeploy@0
    inputs:
     connectionType: 'None'
     namespace: 'keycloak'
     command: 'upgrade'
-    chartType: 'FilePath'
-    chartPath: '$(Build.SourcesDirectory)/keycloak'
+    chartType: 'name'
+    chartPath: 'bhuwanupadhyay/keycloak'
     releaseName: 'keycloak'
     force: true
     waitForExecution: false
